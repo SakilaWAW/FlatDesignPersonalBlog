@@ -1,5 +1,6 @@
 <template>
-  <div class="head-bar">
+  <div class="head-bar" :style="bannerBackground">
+    <div id="mask"></div>
     <nav id="nav-bar">
       <div class="logo"><a href="#">T<>T</a></div>
       <ul class="title-href">
@@ -9,10 +10,11 @@
         <li><a href="#">逻辑</a></li>
       </ul>
     </nav>
-    <div class="banner" :style="bannerBackground">
+    <div class="banner">
       <div class="welcome-block">
-        <span class="title-txt">Talk is Cheap. Show me the code.</span>
-        <span class="sub-title-txt">Never Give up.</span>
+        <span class="first-title">SakilaWAW</span>
+        <span class="second-title">Talk is Cheap. Show me the code.</span>
+        <span class="third-title">Never Give up.</span>
         <button>Now about me</button>
       </div>
     </div>
@@ -37,11 +39,17 @@
 </script>
 
 <style lang="scss" scoped>
+  #mask {
+    position: absolute;
+    height: 10rem;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+  }
   #nav-bar {
     position: relative;
     font-size: 0;
     display: block;
-    background: gray;
+    background: transparent;
     height: 0.4rem;
     .logo {
       display: inline-block;
@@ -75,18 +83,25 @@
     width: 100%;
     .welcome-block {
       margin: 0 auto;
-      font-size: 0.2rem;
       width: 4rem;
       height: 4rem;
       position: relative;
       top: 5rem;
       transform: translateY(-50%);
       text-align: center;
-      .title-txt {
+      .first-title {
+        font-size: 0.4rem;
+        line-height: 1.0rem;
+        border-bottom: 3px solid black;
+        display: block;
+      }
+      .second-title {
+        font-size: 0.2rem;
         line-height: 0.4rem;
         display: block;
       }
-      .sub-title-txt {
+      .third-title {
+        font-size: 0.2rem;
         line-height: 0.35rem;
         margin-bottom: 0.2rem;
         display: block;
