@@ -1,118 +1,98 @@
 <template>
-  <div class="head-bar" :style="bannerBackground">
-    <div id="mask"></div>
-    <nav id="nav-bar">
-      <div class="logo"><a href="#">T<>T</a></div>
-      <ul class="title-href">
-        <li><a href="#">朱雀三生</a></li>
-        <li><a href="#">玄阳</a></li>
-        <li><a href="#">近水楼台先得月</a></li>
-        <li><a href="#">逻辑</a></li>
-      </ul>
-    </nav>
-    <div class="banner">
-      <div class="welcome-block">
-        <span class="first-title">SakilaWAW</span>
-        <span class="second-title">Talk is Cheap. Show me the code.</span>
-        <span class="third-title">Never Give up.</span>
-        <button>Now about me</button>
-      </div>
+  <nav id="main-nav">
+    <div class="fork-me">
+      <a href="https://github.com/SakilaWAW"><img style="position: absolute; top: 0; left: 0; border: 0;"
+                                            src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67"
+                                            alt="Fork me on GitHub"
+                                            data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
     </div>
-  </div>
+    <ul id='link-lis'>
+      <li><a href="">PORTFOLIO</a></li>
+      <li><a href="">ABOUT</a></li>
+      <li><img id='site-logo' alt="snake-logo" :src="logoSrcEntity"></li>
+      <li><a href="">BLOG</a></li>
+      <li><a href="">GET IN TOUCH</a></li>
+    </ul>
+    <div id="nav-decorator">
+      <div class="decorate-line"></div>
+      <div class="decorate-triangle"></div>
+      <div class="decorate-line"></div>
+    </div>
+  </nav>
 </template>
 
 <script>
-  const bannerImg = require('../assets/banner_rain.jpg');
+  const logo = require('../assets/logo.png');
 
   export default {
     name: 'header-area',
     data() {
       return {
-        bannerBackground: {
-          backgroundImage: `url( ${bannerImg} )`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-        },
+        logoSrcEntity: logo,
       };
     },
   };
 </script>
 
 <style lang="scss" scoped>
-  #mask {
-    position: absolute;
-    height: 10rem;
-    width: 100%;
-    background: rgba(0,0,0,0.2);
-  }
-  #nav-bar {
-    position: relative;
+  $navPrimary: #353535;
+
+  #main-nav {
+    background: $navPrimary;
+    height: 0.95rem;
     font-size: 0;
-    display: block;
-    background: transparent;
-    height: 0.4rem;
-    .logo {
-      display: inline-block;
-      font-size: 0.3rem;
-      margin-left: 0.1rem;
-      height: 0.4rem;
-      line-height: 0.4rem;
-    }
-    .title-href {
-      position: absolute;
-      right: 0.1rem;
-      top: 0;
+    #link-lis {
+      margin: 0 auto;
+      height: 0.9rem;
       display: flex;
       align-items: center;
-      font-size: 0.2rem;
+      justify-content: center;
+      padding-top: 0.05rem;
       li {
-        margin: 0 0.1rem;
+        a {
+          text-decoration: none;
+          color: whitesmoke;
+          font-size: 0.15rem;
+          font-weight: 700;
+          line-height: 1.5;
+          margin: 0 0.2rem;
+        }
+        img {
+          margin: 0 0.25rem;
+          height: 0.6rem;
+          width: 0.6rem;
+        }
+      }
+    }
+    #nav-decorator {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      height: 0.3rem;
+      .decorate-line {
+        flex-grow: 1;
+        height: 0.3rem;
         display: inline-block;
+        position: relative;
+        margin: 0 0.3rem;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 0.02rem;
+          background: #ECECEC;
+          top: 0.15rem;
+        }
       }
-    }
-    a {
-      text-decoration: none;
-      color: white;
-      display: inline-block;
-      line-height: 0.4rem;
-      height: 0.4rem;
-    }
-  }
-  .banner {
-    height: 10rem;
-    width: 100%;
-    .welcome-block {
-      margin: 0 auto;
-      width: 4rem;
-      height: 4rem;
-      position: relative;
-      top: 5rem;
-      transform: translateY(-50%);
-      text-align: center;
-      .first-title {
-        font-size: 0.4rem;
-        line-height: 1.0rem;
-        border-bottom: 3px solid black;
-        display: block;
-      }
-      .second-title {
-        font-size: 0.2rem;
-        line-height: 0.4rem;
-        display: block;
-      }
-      .third-title {
-        font-size: 0.2rem;
-        line-height: 0.35rem;
-        margin-bottom: 0.2rem;
-        display: block;
-      }
-      button {
-        border: none;
-        background: #999;
-        line-height: 0.4rem;
-        height: 0.4rem;
-        width: 1.2rem;
-        font-weight: bold;
+      .decorate-triangle {
+        height: 0.6rem;
+        width: 1.15rem;
+        display: inline-block;
+        box-sizing: border-box;
+        border-top: solid 0.3rem $navPrimary;
+        border-right: solid 0.575rem transparent;
+        border-bottom: solid 0.3rem transparent;
+        border-left: solid 0.575rem transparent;
       }
     }
   }
