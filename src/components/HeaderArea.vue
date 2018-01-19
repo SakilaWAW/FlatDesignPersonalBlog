@@ -58,6 +58,9 @@
           margin: 0 0.2rem;
         }
         img {
+          /*微调位置将logo置于中间*/
+          position: relative;
+          left: 0.035rem;
           margin: 0 0.25rem;
           height: 0.6rem;
           width: 0.6rem;
